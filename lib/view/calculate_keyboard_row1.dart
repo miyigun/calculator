@@ -16,6 +16,7 @@ class CalculateKeyboardRow1 extends ConsumerWidget {
                   'C',
                 style: TextStyle(
                   fontSize: 50,
+                  color: Colors.red
                 ),
               ),
               onPressed: () {  },
@@ -25,14 +26,22 @@ class CalculateKeyboardRow1 extends ConsumerWidget {
         Expanded(
           flex: 3,
           child:SizedBox(
-            child: TextButton(
-              child: const Text(
-                'C',
-                style: TextStyle(
-                  fontSize: 50,
-                ),
-              ),
-              onPressed: () {  },
+            child: IconButton(
+              icon: Icon(Icons.backspace_outlined),
+              iconSize: 40,
+              color: Colors.red,
+              onPressed: (){},
+            )
+          ),
+        ),
+        Expanded(
+          flex: 3,
+          child:SizedBox(
+            child: IconButton(
+              icon: Icon(Icons.percent_rounded),
+              iconSize: 40,
+              color: Colors.red,
+              onPressed: (){},
             ),
           ),
         ),
@@ -41,23 +50,10 @@ class CalculateKeyboardRow1 extends ConsumerWidget {
           child:SizedBox(
             child: TextButton(
               child: const Text(
-                'C',
+                '/',
                 style: TextStyle(
                   fontSize: 50,
-                ),
-              ),
-              onPressed: () {  },
-            ),
-          ),
-        ),
-        Expanded(
-          flex: 3,
-          child:SizedBox(
-            child: TextButton(
-              child: const Text(
-                'C',
-                style: TextStyle(
-                  fontSize: 50,
+                  color: Colors.red,
                 ),
               ),
               onPressed: () {  },

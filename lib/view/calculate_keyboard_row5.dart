@@ -12,9 +12,20 @@ class CalculateKeyboardRow5 extends ConsumerWidget {
         Expanded(
           flex: 3,
           child:SizedBox(
+              child: IconButton(
+                icon: Icon(Icons.functions_outlined),
+                iconSize: 40,
+                color: Colors.red,
+                onPressed: (){},
+              )
+          ),
+        ),
+        Expanded(
+          flex: 3,
+          child:SizedBox(
             child: TextButton(
               child: const Text(
-                'C',
+                '0',
                 style: TextStyle(
                   fontSize: 50,
                 ),
@@ -28,7 +39,7 @@ class CalculateKeyboardRow5 extends ConsumerWidget {
           child:SizedBox(
             child: TextButton(
               child: const Text(
-                'C',
+                ',',
                 style: TextStyle(
                   fontSize: 50,
                 ),
@@ -42,23 +53,10 @@ class CalculateKeyboardRow5 extends ConsumerWidget {
           child:SizedBox(
             child: TextButton(
               child: const Text(
-                'C',
+                '=',
                 style: TextStyle(
                   fontSize: 50,
-                ),
-              ),
-              onPressed: () {  },
-            ),
-          ),
-        ),
-        Expanded(
-          flex: 3,
-          child:SizedBox(
-            child: TextButton(
-              child: const Text(
-                'C',
-                style: TextStyle(
-                  fontSize: 50,
+                  color: Colors.red,
                 ),
               ),
               onPressed: () {  },

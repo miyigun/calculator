@@ -14,7 +14,7 @@ class CalculateKeyboardRow2 extends ConsumerWidget {
           child:SizedBox(
             child: TextButton(
               child: const Text(
-                'C',
+                '7',
                 style: TextStyle(
                   fontSize: 50,
                 ),
@@ -28,7 +28,7 @@ class CalculateKeyboardRow2 extends ConsumerWidget {
           child:SizedBox(
             child: TextButton(
               child: const Text(
-                'C',
+                '8',
                 style: TextStyle(
                   fontSize: 50,
                 ),
@@ -42,7 +42,7 @@ class CalculateKeyboardRow2 extends ConsumerWidget {
           child:SizedBox(
             child: TextButton(
               child: const Text(
-                'C',
+                '9',
                 style: TextStyle(
                   fontSize: 50,
                 ),
@@ -56,9 +56,10 @@ class CalculateKeyboardRow2 extends ConsumerWidget {
           child:SizedBox(
             child: TextButton(
               child: const Text(
-                'C',
+                'x',
                 style: TextStyle(
                   fontSize: 50,
+                  color: Colors.red,
                 ),
               ),
               onPressed: () {  },
