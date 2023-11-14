@@ -29,11 +29,26 @@ class CalculatorKeyboard extends ConsumerWidget {
       ),
       child: const Column(
         children: [
-          CalculateKeyboardRow1(),
-          CalculateKeyboardRow2(),
-          CalculateKeyboardRow3(),
-          CalculateKeyboardRow4(),
-          CalculateKeyboardRow5(),
+          Expanded(
+            flex: 2,
+              child: CalculateKeyboardRow1()
+          ),
+          Expanded(
+              flex: 2,
+              child: CalculateKeyboardRow2()
+          ),
+        Expanded(
+              flex: 2,
+              child: CalculateKeyboardRow3()
+          ),
+          Expanded(
+              flex: 2,
+              child: CalculateKeyboardRow4()
+          ),
+          Expanded(
+              flex: 2,
+              child: CalculateKeyboardRow5()
+          ),
         ],
       ),
     );

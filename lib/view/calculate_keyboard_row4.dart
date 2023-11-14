@@ -11,12 +11,54 @@ class CalculateKeyboardRow4 extends ConsumerWidget {
       children: [
         Expanded(
           flex: 3,
-          child:Container(
+          child:SizedBox(
             child: TextButton(
-              child: Text(
+              child: const Text(
                 'C',
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 50,
+                ),
+              ),
+              onPressed: () {  },
+            ),
+          ),
+        ),
+        Expanded(
+          flex: 3,
+          child:SizedBox(
+            child: TextButton(
+              child: const Text(
+                'C',
+                style: TextStyle(
+                  fontSize: 50,
+                ),
+              ),
+              onPressed: () {  },
+            ),
+          ),
+        ),
+        Expanded(
+          flex: 3,
+          child:SizedBox(
+            child: TextButton(
+              child: const Text(
+                'C',
+                style: TextStyle(
+                  fontSize: 50,
+                ),
+              ),
+              onPressed: () {  },
+            ),
+          ),
+        ),
+        Expanded(
+          flex: 3,
+          child:SizedBox(
+            child: TextButton(
+              child: const Text(
+                'C',
+                style: TextStyle(
+                  fontSize: 50,
                 ),
               ),
               onPressed: () {  },
