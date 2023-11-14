@@ -1,3 +1,4 @@
+import 'package:calculator/view/calculator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -6,6 +7,7 @@ class CalculateKeyboardRow2 extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    var read=ref.read(controller);
     return Row(
       children: [
         Expanded(
@@ -18,7 +20,7 @@ class CalculateKeyboardRow2 extends ConsumerWidget {
                   fontSize: 50,
                 ),
               ),
-              onPressed: () {  },
+              onPressed: ()=> read.keySevenFunction(),
             ),
           ),
         ),
@@ -32,7 +34,7 @@ class CalculateKeyboardRow2 extends ConsumerWidget {
                   fontSize: 50,
                 ),
               ),
-              onPressed: () {  },
+              onPressed: ()=> read.keyEightFunction(),
             ),
           ),
         ),
@@ -46,7 +48,7 @@ class CalculateKeyboardRow2 extends ConsumerWidget {
                   fontSize: 50,
                 ),
               ),
-              onPressed: () {  },
+              onPressed: ()=> read.keyNineFunction(),
             ),
           ),
         ),
@@ -61,7 +63,7 @@ class CalculateKeyboardRow2 extends ConsumerWidget {
                   color: Colors.red,
                 ),
               ),
-              onPressed: () {  },
+              onPressed: ()=> read.keyMultipleFunction(),
             ),
           ),
         ),
