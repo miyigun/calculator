@@ -27,7 +27,7 @@ class CalculateKeyboardRow1 extends ConsumerWidget {
           flex: 3,
           child:SizedBox(
             child: IconButton(
-              icon: Icon(Icons.backspace_outlined),
+              icon: const Icon(Icons.backspace_outlined),
               iconSize: 40,
               color: Colors.red,
               onPressed: (){},
@@ -38,7 +38,7 @@ class CalculateKeyboardRow1 extends ConsumerWidget {
           flex: 3,
           child:SizedBox(
             child: IconButton(
-              icon: Icon(Icons.percent_rounded),
+              icon: const Icon(Icons.percent_rounded),
               iconSize: 40,
               color: Colors.red,
               onPressed: (){},

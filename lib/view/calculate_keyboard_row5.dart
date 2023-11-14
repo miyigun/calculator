@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CalculateKeyboardRow5 extends ConsumerWidget {
@@ -13,7 +12,7 @@ class CalculateKeyboardRow5 extends ConsumerWidget {
           flex: 3,
           child:SizedBox(
               child: IconButton(
-                icon: Icon(Icons.functions_outlined),
+                icon: const Icon(Icons.functions_outlined),
                 iconSize: 40,
                 color: Colors.red,
                 onPressed: (){},
