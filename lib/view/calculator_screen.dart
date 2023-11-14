@@ -6,7 +6,21 @@ class CalculatorScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Container();
+    return Container(
+      alignment:Alignment.centerRight,
+      height: MediaQuery.of(context).size.height*0.26,
+      decoration: BoxDecoration(
+        /*image: const DecorationImage(
+          image: AssetImage("assets/images/wood_floor.jpg"),
+          fit: BoxFit.cover,
+        ), *///DecorationImage
+        border: Border.all(
+          //color: Colors.green,
+          width: 1,
+        ), //Border.all
+        borderRadius: BorderRadius.circular(15),
+      ),
+    );
   }
 
 }
