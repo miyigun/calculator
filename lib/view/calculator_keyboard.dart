@@ -1,3 +1,8 @@
+import 'package:calculator/view/calculate_keyboard_row1.dart';
+import 'package:calculator/view/calculate_keyboard_row2.dart';
+import 'package:calculator/view/calculate_keyboard_row3.dart';
+import 'package:calculator/view/calculate_keyboard_row4.dart';
+import 'package:calculator/view/calculate_keyboard_row5.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -21,6 +26,15 @@ class CalculatorKeyboard extends ConsumerWidget {
           width: 1,
         ), //Border.all
         borderRadius: BorderRadius.circular(15),
+      ),
+      child: const Column(
+        children: [
+          CalculateKeyboardRow1(),
+          CalculateKeyboardRow2(),
+          CalculateKeyboardRow3(),
+          CalculateKeyboardRow4(),
+          CalculateKeyboardRow5(),
+        ],
       ),
     );
   }
