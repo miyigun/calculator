@@ -235,14 +235,9 @@ class Controller extends ChangeNotifier {
     List<String> number=[];
     number.addAll(equation.split(' '));
 
-    var firstOperation=[];
-
     for (int i=0;i<number.length;i++) {
       if (number[i] == "/") {
-        firstOperation.add(number[i - 1]);
-        firstOperation.add(number[i + 1]);
-
-        if (firstOperation[1]=="0") {
+        if (number[i+1]=="0") {
           conclusion="Sıfıra bölme var";
           isError=true;
         }
