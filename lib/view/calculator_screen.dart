@@ -33,21 +33,21 @@ class CalculatorScreen extends ConsumerWidget {
             children: [
               Text(
                   watch.equation,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 24
                 ),
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               Text(
                 '= ${watch.conclusion}',
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 24
                 ),
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
             ],
           ),
-          SizedBox(width: 20,),
+          const SizedBox(width: 20,),
         ],
       ),
     );

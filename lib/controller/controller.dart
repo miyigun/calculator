@@ -87,10 +87,15 @@ class Controller extends ChangeNotifier {
   }
 
   void keyPlusFunction() {
-    if (equation[equation.length-2]=='-' || equation[equation.length-2]=='/' || equation[equation.length-2]=='x' || equation[equation.length-2]=='%'){
-      equation="${equation.substring(0,equation.length-2)}+ ";
-    } else if (equation[equation.length-2]=='+') {
-      equation=equation;
+    if (equation.length>1){
+      if (equation[equation.length-2]=='-' || equation[equation.length-2]=='/' || equation[equation.length-2]=='x' || equation[equation.length-2]=='%'){
+        equation="${equation.substring(0,equation.length-2)}+ ";
+      } else if (equation[equation.length-2]=='+') {
+        equation=equation;
+      }
+      else {
+        equation='$equation + ';
+      }
     } else {
       equation='$equation + ';
     }
@@ -99,10 +104,15 @@ class Controller extends ChangeNotifier {
   }
 
   void keyMinusFunction() {
-    if (equation[equation.length-2]=='+' || equation[equation.length-2]=='/' || equation[equation.length-2]=='x' || equation[equation.length-2]=='%'){
-      equation="${equation.substring(0,equation.length-2)}- ";
-    } else if (equation[equation.length-2]=='-') {
-      equation=equation;
+    if (equation.length>1){
+      if (equation[equation.length-2]=='+' || equation[equation.length-2]=='/' || equation[equation.length-2]=='x' || equation[equation.length-2]=='%'){
+        equation="${equation.substring(0,equation.length-2)}- ";
+      } else if (equation[equation.length-2]=='-') {
+        equation=equation;
+      }
+      else {
+        equation='$equation - ';
+      }
     } else {
       equation='$equation - ';
     }
@@ -111,10 +121,15 @@ class Controller extends ChangeNotifier {
   }
 
   void keyMultipleFunction() {
-    if (equation[equation.length-2]=='+' || equation[equation.length-2]=='/' || equation[equation.length-2]=='-' || equation[equation.length-2]=='%'){
-      equation="${equation.substring(0,equation.length-2)}x ";
-    } else if (equation[equation.length-2]=='x') {
-      equation=equation;
+    if (equation.length>1){
+      if (equation[equation.length-2]=='-' || equation[equation.length-2]=='/' || equation[equation.length-2]=='+' || equation[equation.length-2]=='%'){
+        equation="${equation.substring(0,equation.length-2)}x ";
+      } else if (equation[equation.length-2]=='x') {
+        equation=equation;
+      }
+      else {
+        equation='$equation x ';
+      }
     } else {
       equation='$equation x ';
     }
@@ -123,10 +138,15 @@ class Controller extends ChangeNotifier {
   }
 
   void keyDivideFunction() {
-    if (equation[equation.length-2]=='+' || equation[equation.length-2]=='-' || equation[equation.length-2]=='x' || equation[equation.length-2]=='%'){
-      equation="${equation.substring(0,equation.length-2)}/ ";
-    } else if (equation[equation.length-2]=='/') {
-      equation=equation;
+    if (equation.length>1){
+      if (equation[equation.length-2]=='-' || equation[equation.length-2]=='+' || equation[equation.length-2]=='x' || equation[equation.length-2]=='%'){
+        equation="${equation.substring(0,equation.length-2)}/ ";
+      } else if (equation[equation.length-2]=='/') {
+        equation=equation;
+      }
+      else {
+        equation='$equation / ';
+      }
     } else {
       equation='$equation / ';
     }
@@ -135,10 +155,15 @@ class Controller extends ChangeNotifier {
   }
 
   void keyPercentageFunction() {
-    if (equation[equation.length-2]=='+' || equation[equation.length-2]=='-' || equation[equation.length-2]=='x' || equation[equation.length-2]=='/'){
-      equation="${equation.substring(0,equation.length-2)}% ";
-    } else if (equation[equation.length-2]=='%') {
-      equation=equation;
+    if (equation.length>1){
+      if (equation[equation.length-2]=='-' || equation[equation.length-2]=='/' || equation[equation.length-2]=='x' || equation[equation.length-2]=='+'){
+        equation="${equation.substring(0,equation.length-2)}+ ";
+      } else if (equation[equation.length-2]=='%') {
+        equation=equation;
+      }
+      else {
+        equation='$equation % ';
+      }
     } else {
       equation='$equation % ';
     }
@@ -159,7 +184,25 @@ class Controller extends ChangeNotifier {
   }
 
   void keyEqualFunction() {
+    var number=[];
+    number.addAll(equation.split(' '));
 
+    var firstOperation=[];
+
+    //Dizinin elemanlarını boşluklardan temizliyoruz
+    for(int i=0;i<number.length;i++){
+      number[i]=number[i].trim();
+    }
+
+    for (int i=0;i<number.length;i++){
+      if(number[i]=="x") {
+        firstOperation.add(number[i-1]);
+        firstOperation.add(number[i+1]);
+
+        debugPrint(firstOperation.toString());
+        conclusion=(double.parse(firstOperation[0])*double.parse(firstOperation[1])).toString();
+      }
+    }
 
     notifyListeners();
   }
