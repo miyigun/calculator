@@ -183,9 +183,7 @@ class Controller extends ChangeNotifier {
     notifyListeners();
   }
 
-  void keyEqualFunction() {
-    var number=[];
-    number.addAll(equation.split(' '));
+  List<String> operations(List<String> number, String operation){
 
     var firstOperation=[];
 
@@ -194,14 +192,68 @@ class Controller extends ChangeNotifier {
       number[i]=number[i].trim();
     }
 
+    String middleVariable='';
+
     for (int i=0;i<number.length;i++){
-      if(number[i]=="x") {
+      if(number[i]==operation) {
         firstOperation.add(number[i-1]);
         firstOperation.add(number[i+1]);
 
-        debugPrint(firstOperation.toString());
-        conclusion=(double.parse(firstOperation[0])*double.parse(firstOperation[1])).toString();
+        if (operation=='x') {
+          middleVariable=(double.parse(firstOperation[0])*double.parse(firstOperation[1])).toString();
+        } else if (operation=='/') {
+          middleVariable = (double.parse(firstOperation[0]) / double.parse(firstOperation[1])).toString();
+        } else if (operation=='+') {
+          middleVariable=(double.parse(firstOperation[0])+double.parse(firstOperation[1])).toString();
+        } else if (operation=='-') {
+          middleVariable=(double.parse(firstOperation[0])-double.parse(firstOperation[1])).toString();
+        }
+
+        number[i-1]=middleVariable;
+
+        number.removeAt(i);
+
+        number.removeAt(i);
+
+        //dizinin elemanları silindikçe indisler kayıyor. O yüzden i=0 alıp döngüyü baştan başlatıyoruz
+        i=0;
+
+        conclusion=middleVariable;
+
+        firstOperation=[];
       }
+    }
+
+    return number;
+
+  }
+
+  void keyEqualFunction() {
+
+    bool isError=false;
+
+    List<String> number=[];
+    number.addAll(equation.split(' '));
+
+    var firstOperation=[];
+
+    for (int i=0;i<number.length;i++) {
+      if (number[i] == "/") {
+        firstOperation.add(number[i - 1]);
+        firstOperation.add(number[i + 1]);
+
+        if (firstOperation[1]=="0") {
+          conclusion="Sıfıra bölme var";
+          isError=true;
+        }
+      }
+    }
+
+    if (isError==false) {
+      number = operations(number, 'x');
+      number = operations(number, '/');
+      number = operations(number, '+');
+      number = operations(number, '-');
     }
 
     notifyListeners();
