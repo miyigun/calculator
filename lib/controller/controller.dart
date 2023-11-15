@@ -164,7 +164,7 @@ class Controller extends ChangeNotifier {
       else {
         equation='$equation % ';
       }
-    } else {
+    } else if (equation.length==1) {
       equation='$equation % ';
     }
 
@@ -178,7 +178,6 @@ class Controller extends ChangeNotifier {
     } else {
       equation='$equation,';
     }
-
 
     notifyListeners();
   }
@@ -228,6 +227,87 @@ class Controller extends ChangeNotifier {
 
   }
 
+  List<String> percentageOperations(List<String> number){
+
+    //var firstOperation=[];
+
+    //Dizinin elemanlarını boşluklardan temizliyoruz
+    for(int i=0;i<number.length;i++){
+      number[i]=number[i].trim();
+    }
+
+    String middleVariable='';
+
+    for (int i=0;i<number.length;i++){
+      if(number[i]=="%") {
+        //firstOperation.add(number[i-1]);
+        //firstOperation.add(number[i+1]);
+
+        if (number[number.length-1]!=" "){
+          if(number.length>4 && number[number.length-4]=="x") {
+            //debugPrint(number[i-3]);
+            double a=(double.parse(number[i-3])*double.parse(number[i-1]))/100;
+            middleVariable=a.toString();
+
+            number[i-3]=middleVariable;
+
+            number.removeAt(i-2);
+            number.removeAt(i-2);
+            number.removeAt(i-2);
+
+          } else if(number.length>4 && number[number.length-4]=="+") {
+            //debugPrint(number[i-3]);
+            double a=(double.parse(number[i-3])*double.parse(number[i-1]))/100;
+            middleVariable=(double.parse(number[i-3])+a).toString();
+
+            number[i-3]=middleVariable;
+
+            number.removeAt(i-2);
+            number.removeAt(i-2);
+            number.removeAt(i-2);
+
+          }else if(number.length>4 && number[number.length-4]=="-") {
+            //debugPrint(number[i-3]);
+            double a=(double.parse(number[i-3])*double.parse(number[i-1]))/100;
+            middleVariable=(double.parse(number[i-3])-a).toString();
+
+            number[i-3]=middleVariable;
+
+            number.removeAt(i-2);
+            number.removeAt(i-2);
+            number.removeAt(i-2);
+
+          }else if(number.length>4 && number[number.length-4]=="/") {
+            //debugPrint(number[i-3]);
+            double a=double.parse(number[i-1])/100;
+            debugPrint(a.toString());
+            double b=double.parse(number[i-3])/a;
+            debugPrint(b.toString());
+            middleVariable=b.toString();
+
+            number[i-3]=middleVariable;
+
+            number.removeAt(i-2);
+            number.removeAt(i-2);
+            number.removeAt(i-2);
+
+          } else {
+            middleVariable = (double.parse(number[i-1]) / 100).toString();
+          }
+        }
+
+        //dizinin elemanları silindikçe indisler kayıyor. O yüzden i=0 alıp döngüyü baştan başlatıyoruz
+        i=0;
+
+        conclusion=middleVariable;
+
+      }
+    }
+
+    return number;
+
+  }
+
   void keyEqualFunction() {
 
     bool isError=false;
@@ -235,20 +315,33 @@ class Controller extends ChangeNotifier {
     List<String> number=[];
     number.addAll(equation.split(' '));
 
-    for (int i=0;i<number.length;i++) {
-      if (number[i] == "/") {
-        if (number[i+1]=="0") {
-          conclusion="Sıfıra bölme var";
-          isError=true;
+    //Sıfıra bölme kontrolü yapılıyor
+    if (number.length>2) {
+      for (int i = 0; i < number.length; i++) {
+        if (number[i] == "/") {
+          if (number[i + 1] == "0") {
+            conclusion = "Sıfıra bölme var";
+            isError = true;
+          }
         }
       }
     }
 
     if (isError==false) {
-      number = operations(number, 'x');
-      number = operations(number, '/');
-      number = operations(number, '+');
-      number = operations(number, '-');
+
+      if (number.length>=2){
+        // % den sonra sayı olmasa da olur
+        number = percentageOperations(number);
+      }
+
+      if (number.length>2 && number[number.length-1]!=""){
+        // En az 2 sayı ve 1 operatör olmalı
+        number = operations(number, 'x');
+        number = operations(number, '/');
+        number = operations(number, '+');
+        number = operations(number, '-');
+      }
+
     }
 
     notifyListeners();
