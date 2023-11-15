@@ -199,7 +199,39 @@ class Controller extends ChangeNotifier {
         firstOperation.add(number[i+1]);
 
         if (operation=='x') {
-          middleVariable=(double.parse(firstOperation[0])*double.parse(firstOperation[1])).toString();
+          //Bölme operatörü çarpmadan önce ise soldan sağa doğru işlem yapılacak
+          if (number.length>5){
+            if (number[i-2]=='/'){
+              middleVariable = (double.parse(number[i-3]) / double.parse(number[i-1])).toString();
+
+              number[i-3]=middleVariable;
+
+              number.removeAt(i-2);
+
+              number.removeAt(i-2);
+
+              middleVariable=(double.parse(number[i-3])*double.parse(number[i-1])).toString();
+
+              number[i-3]=middleVariable;
+
+              number.removeAt(i-2);
+
+              number.removeAt(i-2);
+
+
+              i=0;
+
+              conclusion=middleVariable;
+
+              firstOperation=[];
+
+              break;
+
+            }
+          }
+
+          middleVariable = (double.parse(firstOperation[0]) * double.parse(firstOperation[1])).toString();
+
         } else if (operation=='/') {
           middleVariable = (double.parse(firstOperation[0]) / double.parse(firstOperation[1])).toString();
         } else if (operation=='+') {
