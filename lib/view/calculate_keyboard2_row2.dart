@@ -15,49 +15,56 @@ class CalculateKeyboard2Row2 extends ConsumerWidget {
           child:SizedBox(
             child: TextButton(
               child: const Text(
-                'C',
+                '7',
                 style: TextStyle(
-                    fontSize: 50,
-                    color: Colors.red
+                  fontSize: 50,
                 ),
               ),
-              onPressed: () => read.keyCFunction(),
+              onPressed: ()=> read.keySevenFunction(),
             ),
           ),
         ),
         Expanded(
           flex: 3,
           child:SizedBox(
-              child: IconButton(
-                icon: const Icon(Icons.backspace_outlined),
-                iconSize: 40,
-                color: Colors.red,
-                onPressed: ()=> read.keyBackSpaceFunction(),
-              )
-          ),
-        ),
-        Expanded(
-          flex: 3,
-          child:SizedBox(
-            child: IconButton(
-              icon: const Icon(Icons.percent_rounded),
-              iconSize: 40,
-              color: Colors.red,
-              onPressed: ()=> read.keyPercentageFunction(),
+            child: TextButton(
+              child: const Text(
+                '8',
+                style: TextStyle(
+                  fontSize: 50,
+                ),
+              ),
+              onPressed: ()=> read.keyEightFunction(),
             ),
           ),
         ),
         Expanded(
           flex: 3,
           child:SizedBox(
-              child: IconButton(
-                icon: Image.asset(
-                  "assets/icons/divide_icon.png",
+            child: TextButton(
+              child: const Text(
+                '9',
+                style: TextStyle(
+                  fontSize: 50,
+                ),
+              ),
+              onPressed: ()=> read.keyNineFunction(),
+            ),
+          ),
+        ),
+        Expanded(
+          flex: 3,
+          child:SizedBox(
+            child: TextButton(
+              child: const Text(
+                'x',
+                style: TextStyle(
+                  fontSize: 50,
                   color: Colors.red,
                 ),
-                iconSize: 40,
-                onPressed: ()=> read.keyDivideFunction(),
-              )
+              ),
+              onPressed: ()=> read.keyMultipleFunction(),
+            ),
           ),
         ),
       ],

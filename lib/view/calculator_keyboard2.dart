@@ -1,13 +1,14 @@
-import 'package:calculator/view/calculate_keyboard_row1.dart';
-import 'package:calculator/view/calculate_keyboard_row2.dart';
-import 'package:calculator/view/calculate_keyboard_row3.dart';
-import 'package:calculator/view/calculate_keyboard_row4.dart';
-import 'package:calculator/view/calculate_keyboard_row5.dart';
+import 'package:calculator/view/calculate_keyboard2_row1.dart';
+import 'package:calculator/view/calculate_keyboard2_row2.dart';
+import 'package:calculator/view/calculate_keyboard2_row3.dart';
+import 'package:calculator/view/calculate_keyboard2_row4.dart';
+import 'package:calculator/view/calculate_keyboard2_row5.dart';
+import 'package:calculator/view/calculate_keyboard2_row6.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class CalculatorKeyboard extends ConsumerWidget {
-  const CalculatorKeyboard({super.key});
+class CalculatorKeyboard2 extends ConsumerWidget {
+  const CalculatorKeyboard2({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -31,23 +32,27 @@ class CalculatorKeyboard extends ConsumerWidget {
         children: [
           Expanded(
               flex: 2,
-              child: CalculateKeyboardRow1()
+              child: CalculateKeyboard2Row1()
           ),
           Expanded(
               flex: 2,
-              child: CalculateKeyboardRow2()
+              child: CalculateKeyboard2Row2()
           ),
           Expanded(
               flex: 2,
-              child: CalculateKeyboardRow3()
+              child: CalculateKeyboard2Row3()
           ),
           Expanded(
               flex: 2,
-              child: CalculateKeyboardRow4()
+              child: CalculateKeyboard2Row4()
           ),
           Expanded(
               flex: 2,
-              child: CalculateKeyboardRow5()
+              child: CalculateKeyboard2Row5()
+          ),
+          Expanded(
+              flex: 2,
+              child: CalculateKeyboard2Row6()
           ),
         ],
       ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class Controller extends ChangeNotifier {
   String equation='';
   String conclusion='';
+  bool scienceCalculator=false;
 
   void keyCFunction() {
     equation='';
@@ -172,8 +173,10 @@ class Controller extends ChangeNotifier {
     notifyListeners();
   }
 
-  void keyFuncFunction(){
+  void keyFunFunction(){
+    scienceCalculator=!scienceCalculator;
 
+    notifyListeners();
   }
 
   void keyCommaFunction() {
