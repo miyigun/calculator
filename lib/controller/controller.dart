@@ -96,7 +96,7 @@ class Controller extends ChangeNotifier {
       else {
         equation='$equation + ';
       }
-    } else {
+    } else if (equation.isNotEmpty){
       equation='$equation + ';
     }
 
@@ -113,7 +113,7 @@ class Controller extends ChangeNotifier {
       else {
         equation='$equation - ';
       }
-    } else {
+    } else if (equation.isNotEmpty){
       equation='$equation - ';
     }
 
@@ -130,7 +130,7 @@ class Controller extends ChangeNotifier {
       else {
         equation='$equation x ';
       }
-    } else {
+    } else if (equation.isNotEmpty){
       equation='$equation x ';
     }
 
@@ -147,7 +147,7 @@ class Controller extends ChangeNotifier {
       else {
         equation='$equation / ';
       }
-    } else {
+    } else if (equation.isNotEmpty){
       equation='$equation / ';
     }
 
@@ -165,11 +165,15 @@ class Controller extends ChangeNotifier {
       else {
         equation='$equation % ';
       }
-    } else if (equation.length==1) {
+    } else if (equation.isNotEmpty){
       equation='$equation % ';
     }
 
     notifyListeners();
+  }
+
+  void keyFuncFunction(){
+
   }
 
   void keyCommaFunction() {
@@ -185,6 +189,28 @@ class Controller extends ChangeNotifier {
 
     notifyListeners();
   }
+
+/*  void keyChangeSign(){
+    List<String> number=[];
+    number.addAll(equation.split(' '));
+
+
+
+    if(number.length==1){
+      debugPrint("bura3");
+      equation="-${equation} ";
+    } else if(number.length>2){
+      debugPrint("bura2");
+      if (number[number.length-2]=="-") {
+        number[number.length-2]="+";
+      } else {
+        number[number.length-2]="-";
+      }
+    }
+
+
+    notifyListeners();
+  }*/
 
   List<String> operations(List<String> number, String operation){
 
@@ -239,7 +265,7 @@ class Controller extends ChangeNotifier {
         } else if (operation=='/') {
           middleVariable = (double.parse(firstOperation[0]) / double.parse(firstOperation[1])).toString();
         } else if (operation=='+') {
-          if (i>2){
+          if (i>3){
             //Toplama yapılırken bir önceki sayının işareti - ise hata olmaması için bu durumu göz önüne alıyorum
             if (number[i-2]=="-"){
 
@@ -258,6 +284,31 @@ class Controller extends ChangeNotifier {
               }
 
               middleVariable=(ara).toString();
+
+            }
+          }else if (i==3){
+            //Toplama yapılırken bir önceki sayının işareti - ise hata olmaması için bu durumu göz önüne alıyorum
+            if (number[i-2]=="-"){
+
+              //Sayılara işaretleri ekleniyor
+              number[i-1]=number[i-2]+ number[i-1];
+
+              number[i+1]=number[i]+ number[i+1];
+
+              double ara=double.parse(number[i-1])+double.parse(number[i+1]);
+
+              //number.removeAt(i-1);
+              debugPrint(number.toString());
+              //number.removeAt(0);
+              //debugPrint("bura2"+number.toString());
+
+
+              middleVariable=(ara).toString();
+              //debugPrint(middleVariable);
+
+              conclusion=middleVariable;
+
+              break;
 
             }
           } else {

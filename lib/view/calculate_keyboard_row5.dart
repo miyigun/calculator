@@ -14,10 +14,12 @@ class CalculateKeyboardRow5 extends ConsumerWidget {
           flex: 3,
           child:SizedBox(
               child: IconButton(
-                icon: const Icon(Icons.functions_outlined),
+                icon: Image.asset(
+                    "assets/icons/function_icon.png",
+                  color: Colors.red,
+                ),
                 iconSize: 40,
-                color: Colors.red,
-                onPressed: (){},
+                onPressed: ()=> read.keyFuncFunction(),
               )
           ),
         ),

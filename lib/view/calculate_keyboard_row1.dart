@@ -50,16 +50,14 @@ class CalculateKeyboardRow1 extends ConsumerWidget {
         Expanded(
           flex: 3,
           child:SizedBox(
-            child: TextButton(
-              child: const Text(
-                '/',
-                style: TextStyle(
-                  fontSize: 50,
-                  color: Colors.red,
-                ),
+            child: IconButton(
+              icon: Image.asset(
+                "assets/icons/divide_icon.png",
+                color: Colors.red,
               ),
-              onPressed: () => read.keyDivideFunction(),
-            ),
+              iconSize: 40,
+              onPressed: ()=> read.keyDivideFunction(),
+            )
           ),
         ),
       ],
