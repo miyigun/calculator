@@ -353,6 +353,8 @@ class Controller extends ChangeNotifier {
 
         conclusion=middleVariable;
 
+
+
         firstOperation=[];
       }
     }
@@ -481,6 +483,24 @@ class Controller extends ChangeNotifier {
         number = operations(number, '/');
         number = operations(number, '+');
         number = operations(number, '-');
+      }
+
+    }
+
+    List<String> ara=conclusion.split('.');
+
+    ara[1]=ara[1].trim();
+
+    if (conclusion.contains('.')==true) {
+
+
+      if (ara[1]=="0") {
+        conclusion = ara[0];
+      } else {
+        if(ara[1].length>2){
+          ara[1]=ara[1].substring(0,2);
+        }
+        conclusion="${ara[0]}.${ara[1]}";
       }
 
     }
