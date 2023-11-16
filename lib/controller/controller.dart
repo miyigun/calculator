@@ -242,6 +242,7 @@ class Controller extends ChangeNotifier {
       number[i]=number[i].trim();
     }
 
+
     String middleVariable='';
 
     for (int i=0;i<number.length;i++){
@@ -251,8 +252,9 @@ class Controller extends ChangeNotifier {
 
         if (operation=='x') {
           //Bölme operatörü çarpmadan önce ise soldan sağa doğru işlem yapılacak
-          if (i>3){
+          if (i>2){
             if (number[i-2]=='/'){
+
               middleVariable = (double.parse(number[i-3]) / double.parse(number[i-1])).toString();
 
               number[i-3]=middleVariable;
@@ -286,6 +288,7 @@ class Controller extends ChangeNotifier {
         } else if (operation=='/') {
           middleVariable = (double.parse(firstOperation[0]) / double.parse(firstOperation[1])).toString();
         } else if (operation=='+') {
+          debugPrint("i=${i}");
           if (i>3){
             //Toplama yapılırken bir önceki sayının işareti - ise hata olmaması için bu durumu göz önüne alıyorum
             if (number[i-2]=="-"){
@@ -314,9 +317,19 @@ class Controller extends ChangeNotifier {
               //Sayılara işaretleri ekleniyor
               number[i-1]=number[i-2]+ number[i-1];
 
+
               number[i+1]=number[i]+ number[i+1];
+              debugPrint(number.toString());
 
               double ara=double.parse(number[i-1])+double.parse(number[i+1]);
+
+              if (ara>0) {
+                number[i-2]="+";
+                //number[i-1]=number[i-1].substring(1,number[i-1].length);
+                //debugPrint(number[i-1]);
+              } else {
+                debugPrint("bura");
+              }
 
               //number.removeAt(i-1);
               debugPrint(number.toString());
@@ -329,7 +342,7 @@ class Controller extends ChangeNotifier {
 
               conclusion=middleVariable;
 
-              break;
+              //break;
 
             }
           } else {
@@ -485,22 +498,22 @@ class Controller extends ChangeNotifier {
         number = operations(number, '-');
       }
 
-    }
+      List<String> ara=conclusion.split('.');
 
-    List<String> ara=conclusion.split('.');
+      ara[1]=ara[1].trim();
 
-    ara[1]=ara[1].trim();
-
-    if (conclusion.contains('.')==true) {
+      if (conclusion.contains('.')==true) {
 
 
-      if (ara[1]=="0") {
-        conclusion = ara[0];
-      } else {
-        if(ara[1].length>2){
-          ara[1]=ara[1].substring(0,2);
+        if (ara[1]=="0") {
+          conclusion = ara[0];
+        } else {
+          if(ara[1].length>2){
+            ara[1]=ara[1].substring(0,2);
+          }
+          conclusion="${ara[0]}.${ara[1]}";
         }
-        conclusion="${ara[0]}.${ara[1]}";
+
       }
 
     }
