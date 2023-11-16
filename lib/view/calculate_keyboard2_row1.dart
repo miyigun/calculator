@@ -13,25 +13,24 @@ class CalculateKeyboard2Row1 extends ConsumerWidget {
         Expanded(
           flex: 3,
           child:SizedBox(
-            child: IconButton(
-              icon: Image.asset(
-                "assets/icons/square_icon.png",
-                color: Colors.red,
+            child: TextButton(
+              child: const Text(
+                'C',
+                style: TextStyle(
+                    fontSize: 40,
+                    color: Colors.red
+                ),
               ),
-              iconSize: 40,
-              onPressed: ()=> read.keyDivideFunction(),
-            )
+              onPressed: () => read.keyCFunction(),
+            ),
           ),
         ),
         Expanded(
           flex: 3,
           child:SizedBox(
               child: IconButton(
-                icon: Image.asset(
-                  "assets/icons/power_icon.png",
-                  color: Colors.red,
-                ),
-                iconSize: 40,
+                icon: const Icon(Icons.backspace_outlined),
+                iconSize: 30,
                 color: Colors.red,
                 onPressed: ()=> read.keyBackSpaceFunction(),
               )
@@ -67,16 +66,12 @@ class CalculateKeyboard2Row1 extends ConsumerWidget {
         Expanded(
           flex: 3,
           child:SizedBox(
-              child: TextButton(
-                child: const Text(
-                  '1/x',
-                  style: TextStyle(
-                    fontSize: 50,
-                    color: Colors.red,
-                  ),
-                ),
-                onPressed: ()=> read.keyMultipleFunction(),
-              ),
+            child: IconButton(
+              icon: const Icon(Icons.percent_rounded),
+              iconSize: 40,
+              color: Colors.red,
+              onPressed: ()=> read.keyPercentageFunction(),
+            ),
           ),
         ),
       ],

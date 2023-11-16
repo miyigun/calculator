@@ -1,3 +1,5 @@
+import 'package:calculator/view/caculator2.dart';
+import 'package:calculator/view/calculator.dart';
 import 'package:flutter/material.dart';
 
 class Controller extends ChangeNotifier {
@@ -173,10 +175,26 @@ class Controller extends ChangeNotifier {
     notifyListeners();
   }
 
-  void keyFunFunction(){
+  void keyFunFunction(BuildContext context){
     scienceCalculator=!scienceCalculator;
 
     notifyListeners();
+
+    if (scienceCalculator==true) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Calculator2()),
+      );
+
+    } else {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Calculator()),
+      );
+
+    }
+
+
   }
 
   void keyCommaFunction() {

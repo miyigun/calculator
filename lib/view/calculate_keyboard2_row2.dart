@@ -11,60 +11,76 @@ class CalculateKeyboard2Row2 extends ConsumerWidget {
     return Row(
       children: [
         Expanded(
-          flex: 3,
+          flex: 2,
           child:SizedBox(
             child: TextButton(
               child: const Text(
-                '7',
+                'sinx',
                 style: TextStyle(
-                  fontSize: 50,
-                ),
-              ),
-              onPressed: ()=> read.keySevenFunction(),
-            ),
-          ),
-        ),
-        Expanded(
-          flex: 3,
-          child:SizedBox(
-            child: TextButton(
-              child: const Text(
-                '8',
-                style: TextStyle(
-                  fontSize: 50,
-                ),
-              ),
-              onPressed: ()=> read.keyEightFunction(),
-            ),
-          ),
-        ),
-        Expanded(
-          flex: 3,
-          child:SizedBox(
-            child: TextButton(
-              child: const Text(
-                '9',
-                style: TextStyle(
-                  fontSize: 50,
-                ),
-              ),
-              onPressed: ()=> read.keyNineFunction(),
-            ),
-          ),
-        ),
-        Expanded(
-          flex: 3,
-          child:SizedBox(
-            child: TextButton(
-              child: const Text(
-                'x',
-                style: TextStyle(
-                  fontSize: 50,
+                  fontSize: 25,
                   color: Colors.red,
                 ),
               ),
               onPressed: ()=> read.keyMultipleFunction(),
             ),
+          ),
+        ),
+        Expanded(
+          flex: 2,
+          child:SizedBox(
+              child: IconButton(
+                icon: Image.asset(
+                  "assets/icons/square_icon.png",
+                  color: Colors.red,
+                  width: 30,
+                  height: 30,
+
+                ),
+                iconSize: 40,
+                onPressed: ()=> read.keyDivideFunction(),
+              )
+          ),
+        ),
+        Expanded(
+          flex: 2,
+          child:SizedBox(
+              child: IconButton(
+                icon: Image.asset(
+                  "assets/icons/power_icon.png",
+                  color: Colors.red,
+                ),
+                iconSize: 40,
+                color: Colors.red,
+                onPressed: ()=> read.keyBackSpaceFunction(),
+              )
+          ),
+        ),
+        Expanded(
+          flex: 2,
+          child:SizedBox(
+            child: TextButton(
+              child: const Text(
+                '1/x',
+                style: TextStyle(
+                  fontSize: 25,
+                  color: Colors.red,
+                ),
+              ),
+              onPressed: ()=> read.keyMultipleFunction(),
+            ),
+          ),
+        ),
+        Expanded(
+          flex: 2,
+          child:SizedBox(
+              child: IconButton(
+                icon: Image.asset(
+                  "assets/icons/divide_icon.png",
+                  color: Colors.red,
+                ),
+                iconSize: 40,
+                onPressed: ()=> read.keyDivideFunction(),
+              )
           ),
         ),
       ],

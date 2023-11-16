@@ -15,6 +15,21 @@ class CalculateKeyboard2Row3 extends ConsumerWidget {
           child:SizedBox(
             child: TextButton(
               child: const Text(
+                'cosx',
+                style: TextStyle(
+                  fontSize: 25,
+                  color: Colors.red,
+                ),
+              ),
+              onPressed: ()=> read.keyMultipleFunction(),
+            ),
+          ),
+        ),
+        Expanded(
+          flex: 3,
+          child:SizedBox(
+            child: TextButton(
+              child: const Text(
                 '7',
                 style: TextStyle(
                   fontSize: 50,

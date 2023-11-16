@@ -66,6 +66,8 @@ flutter:
     - assets/icons/power_icon.png
     - assets/icons/square_icon.png
     - assets/icons/square_root_icon.png
+    - assets/icons/root_icon.png
+    - assets/icons/pi_icon.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

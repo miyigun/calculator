@@ -1,13 +1,13 @@
 import 'package:calculator/controller/controller.dart';
-import 'package:calculator/view/calculator_keyboard.dart';
-import 'package:calculator/view/calculator_screen.dart';
+import 'package:calculator/view/calculator2_screen.dart';
+import 'package:calculator/view/calculator2_keyboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final controller=ChangeNotifierProvider((ref) => Controller());
 
-class Calculator extends StatelessWidget {
-  const Calculator({super.key});
+class Calculator2 extends StatelessWidget {
+  const Calculator2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +18,9 @@ class Calculator extends StatelessWidget {
           padding: EdgeInsets.all(10.0),
           child: Column(
             children: [
-              CalculatorScreen(),
+              Calculator2Screen(),
               SizedBox(height: 10,),
-              CalculatorKeyboard(),
+              Calculator2Keyboard(),
             ],
           ),
         ),

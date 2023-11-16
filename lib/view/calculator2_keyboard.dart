@@ -7,8 +7,8 @@ import 'package:calculator/view/calculate_keyboard2_row6.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class CalculatorKeyboard2 extends ConsumerWidget {
-  const CalculatorKeyboard2({super.key});
+class Calculator2Keyboard extends ConsumerWidget {
+  const Calculator2Keyboard({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

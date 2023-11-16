@@ -19,7 +19,20 @@ class CalculateKeyboard2Row6 extends ConsumerWidget {
                   color: Colors.red,
                 ),
                 iconSize: 40,
-                onPressed: ()=> read.keyFunFunction(),
+                onPressed: ()=> read.keyFunFunction(context),
+              )
+          ),
+        ),
+        Expanded(
+          flex: 3,
+          child:SizedBox(
+              child: IconButton(
+                icon: Image.asset(
+                  "assets/icons/pi_icon.png",
+                  color: Colors.red,
+                ),
+                iconSize: 30,
+                onPressed: ()=> read.keyFunFunction(context),
               )
           ),
         ),
