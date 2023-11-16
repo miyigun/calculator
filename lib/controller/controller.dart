@@ -252,7 +252,9 @@ class Controller extends ChangeNotifier {
 
         if (operation=='x') {
           //Bölme operatörü çarpmadan önce ise soldan sağa doğru işlem yapılacak
+
           if (i>2){
+            debugPrint("çarpma yapılıyor");
             if (number[i-2]=='/'){
 
               middleVariable = (double.parse(number[i-3]) / double.parse(number[i-1])).toString();
@@ -272,7 +274,7 @@ class Controller extends ChangeNotifier {
               number.removeAt(i-2);
 
 
-              i=0;
+              //i=0;
 
               conclusion=middleVariable;
 
