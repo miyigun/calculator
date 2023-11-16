@@ -8,7 +8,6 @@ class CalculateKeyboard2Row4 extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var read=ref.read(controller);
-
     return Row(
       children: [
         Expanded(
@@ -16,12 +15,12 @@ class CalculateKeyboard2Row4 extends ConsumerWidget {
           child:SizedBox(
             child: TextButton(
               child: const Text(
-                '1',
+                '4',
                 style: TextStyle(
                   fontSize: 50,
                 ),
               ),
-              onPressed: () => read.keyOneFunction(),
+              onPressed: ()=> read.keyFourFunction(),
             ),
           ),
         ),
@@ -30,12 +29,12 @@ class CalculateKeyboard2Row4 extends ConsumerWidget {
           child:SizedBox(
             child: TextButton(
               child: const Text(
-                '2',
+                '5',
                 style: TextStyle(
                   fontSize: 50,
                 ),
               ),
-              onPressed: () => read.keyTwoFunction(),
+              onPressed: ()=> read.keyFiveFunction(),
             ),
           ),
         ),
@@ -44,12 +43,12 @@ class CalculateKeyboard2Row4 extends ConsumerWidget {
           child:SizedBox(
             child: TextButton(
               child: const Text(
-                '3',
+                '6',
                 style: TextStyle(
                   fontSize: 50,
                 ),
               ),
-              onPressed: () => read.keyThreeFunction(),
+              onPressed: ()=> read.keySixFunction(),
             ),
           ),
         ),
@@ -58,13 +57,13 @@ class CalculateKeyboard2Row4 extends ConsumerWidget {
           child:SizedBox(
             child: TextButton(
               child: const Text(
-                '+',
+                '-',
                 style: TextStyle(
                   fontSize: 50,
                   color: Colors.red,
                 ),
               ),
-              onPressed: ()=> read.keyPlusFunction(),
+              onPressed: ()=> read.keyMinusFunction(),
             ),
           ),
         ),

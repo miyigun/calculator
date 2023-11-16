@@ -15,12 +15,12 @@ class CalculateKeyboard2Row3 extends ConsumerWidget {
           child:SizedBox(
             child: TextButton(
               child: const Text(
-                '4',
+                '7',
                 style: TextStyle(
                   fontSize: 50,
                 ),
               ),
-              onPressed: ()=> read.keyFourFunction(),
+              onPressed: ()=> read.keySevenFunction(),
             ),
           ),
         ),
@@ -29,12 +29,12 @@ class CalculateKeyboard2Row3 extends ConsumerWidget {
           child:SizedBox(
             child: TextButton(
               child: const Text(
-                '5',
+                '8',
                 style: TextStyle(
                   fontSize: 50,
                 ),
               ),
-              onPressed: ()=> read.keyFiveFunction(),
+              onPressed: ()=> read.keyEightFunction(),
             ),
           ),
         ),
@@ -43,12 +43,12 @@ class CalculateKeyboard2Row3 extends ConsumerWidget {
           child:SizedBox(
             child: TextButton(
               child: const Text(
-                '6',
+                '9',
                 style: TextStyle(
                   fontSize: 50,
                 ),
               ),
-              onPressed: ()=> read.keySixFunction(),
+              onPressed: ()=> read.keyNineFunction(),
             ),
           ),
         ),
@@ -57,13 +57,13 @@ class CalculateKeyboard2Row3 extends ConsumerWidget {
           child:SizedBox(
             child: TextButton(
               child: const Text(
-                '-',
+                'x',
                 style: TextStyle(
                   fontSize: 50,
                   color: Colors.red,
                 ),
               ),
-              onPressed: ()=> read.keyMinusFunction(),
+              onPressed: ()=> read.keyMultipleFunction(),
             ),
           ),
         ),

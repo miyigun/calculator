@@ -15,56 +15,49 @@ class CalculateKeyboard2Row2 extends ConsumerWidget {
           child:SizedBox(
             child: TextButton(
               child: const Text(
-                '7',
+                'C',
                 style: TextStyle(
-                  fontSize: 50,
+                    fontSize: 50,
+                    color: Colors.red
                 ),
               ),
-              onPressed: ()=> read.keySevenFunction(),
+              onPressed: () => read.keyCFunction(),
             ),
           ),
         ),
         Expanded(
           flex: 3,
           child:SizedBox(
-            child: TextButton(
-              child: const Text(
-                '8',
-                style: TextStyle(
-                  fontSize: 50,
-                ),
-              ),
-              onPressed: ()=> read.keyEightFunction(),
+              child: IconButton(
+                icon: const Icon(Icons.backspace_outlined),
+                iconSize: 40,
+                color: Colors.red,
+                onPressed: ()=> read.keyBackSpaceFunction(),
+              )
+          ),
+        ),
+        Expanded(
+          flex: 3,
+          child:SizedBox(
+            child: IconButton(
+              icon: const Icon(Icons.percent_rounded),
+              iconSize: 40,
+              color: Colors.red,
+              onPressed: ()=> read.keyPercentageFunction(),
             ),
           ),
         ),
         Expanded(
           flex: 3,
           child:SizedBox(
-            child: TextButton(
-              child: const Text(
-                '9',
-                style: TextStyle(
-                  fontSize: 50,
-                ),
-              ),
-              onPressed: ()=> read.keyNineFunction(),
-            ),
-          ),
-        ),
-        Expanded(
-          flex: 3,
-          child:SizedBox(
-            child: TextButton(
-              child: const Text(
-                'x',
-                style: TextStyle(
-                  fontSize: 50,
+              child: IconButton(
+                icon: Image.asset(
+                  "assets/icons/divide_icon.png",
                   color: Colors.red,
                 ),
-              ),
-              onPressed: ()=> read.keyMultipleFunction(),
-            ),
+                iconSize: 40,
+                onPressed: ()=> read.keyDivideFunction(),
+              )
           ),
         ),
       ],
