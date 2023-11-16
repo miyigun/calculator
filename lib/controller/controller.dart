@@ -177,7 +177,7 @@ class Controller extends ChangeNotifier {
     List<String> number=[];
     number.addAll(equation.split(' '));
 
-    if (number[number.length-1].contains('.')==false){
+    if (number[number.length-1].contains('.')==false && number[number.length-1]!=""){
       equation='$equation.';
       } else {
         equation=equation;
@@ -204,7 +204,7 @@ class Controller extends ChangeNotifier {
 
         if (operation=='x') {
           //Bölme operatörü çarpmadan önce ise soldan sağa doğru işlem yapılacak
-          if (number.length>5){
+          if (i>3){
             if (number[i-2]=='/'){
               middleVariable = (double.parse(number[i-3]) / double.parse(number[i-1])).toString();
 
@@ -239,16 +239,42 @@ class Controller extends ChangeNotifier {
         } else if (operation=='/') {
           middleVariable = (double.parse(firstOperation[0]) / double.parse(firstOperation[1])).toString();
         } else if (operation=='+') {
-          middleVariable=(double.parse(firstOperation[0])+double.parse(firstOperation[1])).toString();
+          if (i>2){
+            //Toplama yapılırken bir önceki sayının işareti - ise hata olmaması için bu durumu göz önüne alıyorum
+            if (number[i-2]=="-"){
+
+              //Sayılara işaretleri ekleniyor
+              number[i-1]=number[i-2]+ number[i-1];
+
+              number[i+1]=number[i]+ number[i+1];
+
+              double ara=double.parse(number[i-1])+double.parse(number[i+1]);
+
+              //Büyük olanın işareti alınıyor
+              if (ara>=0) {
+                number[i-2]="+";
+              } else {
+                number[i-2]="-";
+              }
+
+              middleVariable=(ara).toString();
+
+            }
+          } else {
+            middleVariable=(double.parse(firstOperation[0])+double.parse(firstOperation[1])).toString();
+          }
         } else if (operation=='-') {
           middleVariable=(double.parse(firstOperation[0])-double.parse(firstOperation[1])).toString();
         }
 
         number[i-1]=middleVariable;
+        debugPrint(number.toString());
 
         number.removeAt(i);
+        debugPrint(number.toString());
 
         number.removeAt(i);
+        debugPrint(number.toString());
 
         //dizinin elemanları silindikçe indisler kayıyor. O yüzden i=0 alıp döngüyü baştan başlatıyoruz
         i=0;
