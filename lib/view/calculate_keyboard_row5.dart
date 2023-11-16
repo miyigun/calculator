@@ -40,7 +40,7 @@ class CalculateKeyboardRow5 extends ConsumerWidget {
           child:SizedBox(
             child: TextButton(
               child: const Text(
-                ',',
+                '.',
                 style: TextStyle(
                   fontSize: 50,
                 ),

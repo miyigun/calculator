@@ -156,8 +156,9 @@ class Controller extends ChangeNotifier {
 
   void keyPercentageFunction() {
     if (equation.length>1){
+
       if (equation[equation.length-2]=='-' || equation[equation.length-2]=='/' || equation[equation.length-2]=='x' || equation[equation.length-2]=='+'){
-        equation="${equation.substring(0,equation.length-2)}+ ";
+        equation="${equation.substring(0,equation.length-2)}% ";
       } else if (equation[equation.length-2]=='%') {
         equation=equation;
       }
@@ -172,12 +173,15 @@ class Controller extends ChangeNotifier {
   }
 
   void keyCommaFunction() {
-    //denklemin içinde virgül varsa bir daha ekleme
-    if (equation.contains(',')) {
-      equation=equation;
-    } else {
-      equation='$equation,';
-    }
+    //denklemin içinde virgül varsa bir daha ekleme ama operatörden sonra bir sayı daha varsa eklenebilir
+    List<String> number=[];
+    number.addAll(equation.split(' '));
+
+    if (number[number.length-1].contains('.')==false){
+      equation='$equation.';
+      } else {
+        equation=equation;
+      }
 
     notifyListeners();
   }
@@ -277,7 +281,7 @@ class Controller extends ChangeNotifier {
 
         if (number[number.length-1]!=" "){
           if(number.length>4 && number[number.length-4]=="x") {
-            //debugPrint(number[i-3]);
+
             double a=(double.parse(number[i-3])*double.parse(number[i-1]))/100;
             middleVariable=a.toString();
 
@@ -288,7 +292,7 @@ class Controller extends ChangeNotifier {
             number.removeAt(i-2);
 
           } else if(number.length>4 && number[number.length-4]=="+") {
-            //debugPrint(number[i-3]);
+
             double a=(double.parse(number[i-3])*double.parse(number[i-1]))/100;
             middleVariable=(double.parse(number[i-3])+a).toString();
 
@@ -299,7 +303,7 @@ class Controller extends ChangeNotifier {
             number.removeAt(i-2);
 
           }else if(number.length>4 && number[number.length-4]=="-") {
-            //debugPrint(number[i-3]);
+
             double a=(double.parse(number[i-3])*double.parse(number[i-1]))/100;
             middleVariable=(double.parse(number[i-3])-a).toString();
 
@@ -310,11 +314,11 @@ class Controller extends ChangeNotifier {
             number.removeAt(i-2);
 
           }else if(number.length>4 && number[number.length-4]=="/") {
-            //debugPrint(number[i-3]);
+
             double a=double.parse(number[i-1])/100;
-            debugPrint(a.toString());
+
             double b=double.parse(number[i-3])/a;
-            debugPrint(b.toString());
+
             middleVariable=b.toString();
 
             number[i-3]=middleVariable;
@@ -323,8 +327,15 @@ class Controller extends ChangeNotifier {
             number.removeAt(i-2);
             number.removeAt(i-2);
 
-          } else {
+          } else if (number.length==3){
             middleVariable = (double.parse(number[i-1]) / 100).toString();
+
+            number[i-1]=middleVariable;
+
+            number.removeAt(i);
+
+            conclusion=middleVariable;
+
           }
         }
 
